@@ -2,9 +2,7 @@
 
 	echo( expandPath("{lucee-server}") );
 	flush;
-	/*
-	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
-
+	
 	admin
 		action="getMappings"
 		type="web"
@@ -34,5 +32,4 @@
 
 	a = new Query();
 	dump(a);
-*/
 </cfscript>
