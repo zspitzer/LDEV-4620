@@ -1,6 +1,7 @@
 <cfscript>
 
 	echo( expandPath("{lucee-server}") );
+	flush;
 	
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
