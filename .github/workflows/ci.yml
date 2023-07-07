@@ -14,8 +14,9 @@ jobs:
       - name: dump dir
         run: |
           pwd
-          mkdir -p /usr/lib/CommandBox/server/06C699DF3346208DBEBADAC8F62CC045-presidetests-regression/lucee-6.0.0-SNAPSHOT.493/WEB-INF/lucee-server/context/
-          echo "password" > /usr/lib/CommandBox/server/06C699DF3346208DBEBADAC8F62CC045-presidetests-regression/lucee-6.0.0-SNAPSHOT.493/WEB-INF/lucee-server/context/password.txt
+          mkdir -p ~/local/WEB-INF/lucee-server/context/
+          echo "password" > ~/local/WEB-INF/lucee-server/context/password.txt
+          ls -r *.*
       - name: Install dependencies
         uses: pixl8/github-action-box-install@v2
         with:
