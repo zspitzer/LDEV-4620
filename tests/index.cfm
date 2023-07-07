@@ -13,9 +13,9 @@
 
 	echo("-------------- Mappings --------------" & chr(10));
 	loop query="mappings" {
-		echo("#mappings.virtual# #mappings.strPhysical# "
-			& (len(mappings.strArchive) ? "[#mappings.strArchive#] " : "")
-			& (len(mappings.inspect) ? "(#mappings.inspect#)" : "" & chr(10));
+
+		echo( "#mappings.virtual# #mappings.strPhysical# " & chr(10));
+
 	}
 
 	admin
@@ -26,9 +26,7 @@
 
 	echo("-------------- Mappings --------------" & chr(10));
 	loop query="mappings" {
-		echo("#mappings.virtual##mappings.strPhysical# "
-			& (len(mappings.strArchive) ? "[#mappings.strArchive#] " : "")
-			& (len(mappings.inspect) ? "(#mappings.inspect#)" : "") & chr(10) );
+		echo("#mappings.virtual##mappings.strPhysical# " & chr(10) );
 	}
 
 	a = new Query();
