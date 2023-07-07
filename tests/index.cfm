@@ -13,7 +13,7 @@
 
 	systemOutput("-------------- Mappings --------------", true);
 	loop query="mappings" {
-		systemOutput("#mappings.virtual# #TAB# #mappings.strPhysical# "
+		systemOutput("#mappings.virtual# #mappings.strPhysical# "
 			& (len(mappings.strArchive) ? "[#mappings.strArchive#] " : "")
 			& (len(mappings.inspect) ? "(#mappings.inspect#)" : ""), true);
 	}
@@ -27,7 +27,7 @@
 
 	systemOutput("-------------- Mappings --------------", true);
 	loop query="mappings" {
-		systemOutput("#mappings.virtual# #TAB# #mappings.strPhysical# "
+		systemOutput("#mappings.virtual##mappings.strPhysical# "
 			& (len(mappings.strArchive) ? "[#mappings.strArchive#] " : "")
 			& (len(mappings.inspect) ? "(#mappings.inspect#)" : ""), true);
 	}
