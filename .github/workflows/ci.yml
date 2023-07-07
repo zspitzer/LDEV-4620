@@ -7,11 +7,15 @@ jobs:
     name: Preside CI
     runs-on: ubuntu-latest
     steps:
+      - name: dump dir
+        run: |
+          ls -lr
       - name: Install dependencies
         uses: pixl8/github-action-box-install@v2
         with:
           verbose: true
           force: true
+          boxjson_dir: ~/
       - name: Run tests
         uses: pixl8/github-action-box-test@v3
         with:
