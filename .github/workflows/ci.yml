@@ -27,3 +27,5 @@ jobs:
           test_server_json: /tests/server.json
           output_file: /tests/test-results.txt
           verbose: false
+        env:
+          CFCONFIG_ADMINPASSWORD: password
