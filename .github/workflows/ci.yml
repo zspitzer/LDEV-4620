@@ -14,9 +14,9 @@ jobs:
       - name: dump dir
         run: |
           pwd
-          mkdir -p /root/local/WEB-INF/lucee-server/context
-          echo "password" > /root/local/WEB-INF/lucee-server/context/password.txt
-          cat /root/local/WEB-INF/lucee-server/context/password.txt
+          mkdir -p /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context
+          echo "password" > /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
+          cat /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
           ls -R *.*
       - name: Install dependencies
         uses: pixl8/github-action-box-install@v2
