@@ -1,5 +1,6 @@
 <cfscript>
 	
+	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
 	admin
 		action="getMappings"
