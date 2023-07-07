@@ -1,0 +1,5 @@
+/WEB-INF
+web.config
+testbox
+testresults*.html
+.cfconfig.json
