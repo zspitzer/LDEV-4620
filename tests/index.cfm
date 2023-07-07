@@ -11,6 +11,14 @@
 	}
 
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
+
+	try {
+		a = new Query();
+		echo("worked?" & chr(10));
+	} catch (e) {
+		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
+	}
+
 	admin action="checkPassword" type="server";
 
 	try {
