@@ -3,7 +3,7 @@ component {
 	this.name = "Preside Test Suite " & Hash( ExpandPath( '/' ) );
 
 	currentDir = GetDirectoryFromPath( GetCurrentTemplatePath() );
-
+	/*
 	this.mappings['/tests']       = currentDir;
 	this.mappings['/integration'] = currentDir & "integration";
 	this.mappings['/resources']   = currentDir & "resources";
@@ -14,4 +14,5 @@ component {
 	this.mappings['/coldbox']     = currentDir & "../system/externals/coldbox";
 
 	setting requesttimeout="6000";
+	*/
 }

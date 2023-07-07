@@ -10,12 +10,5 @@
         "http":{
             "port":"9999"
         }
-    },
-    "JVM":{
-        "heapSize":"2048",
-        "minHeapSize":"1024"
-    },
-    "fusionreactor":{
-        "enable":"false"
     }
 }
