@@ -7,11 +7,18 @@
 		a = new Query();
 		echo("worked?" & chr(10));
 	} catch (e) {
-		echo (" failed : #e.stacktrace#" & chr(10));
+		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
 	}
 
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 	admin action="checkPassword" type="server";
+
+	try {
+		a = new Query();
+		echo("worked?" & chr(10));
+	} catch (e) {
+		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
+	}
 
 	flush;
 	admin
@@ -38,7 +45,12 @@
 		echo("#mappings.virtual##mappings.strPhysical# " & chr(10) );
 	}
 
-	a = new Query();
-	echo("worked?");
+	try {
+		a = new Query();
+		echo("worked?" & chr(10));
+	} catch (e) {
+		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
+	}
+
 
 </cfscript>
