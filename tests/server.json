@@ -6,7 +6,10 @@
         "cfengine":"lucee@6.0.0-SNAPSHOT+495"
     },
     "web":{
-        "webroot":"./"
+        "webroot":"./",
+        "http":{
+            "port":"9999"
+        }
     },
     "JVM":{
         "heapSize":"2048",
