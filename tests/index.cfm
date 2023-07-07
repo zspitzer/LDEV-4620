@@ -1,6 +1,6 @@
 <cfscript>
 
-	echo( expandPath("{lucee-server}") );
+	echo( expandPath("{lucee-server}") & chr(10) );
 	flush;
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 	admin action="checkPassword" type="server";
@@ -11,13 +11,12 @@
 		password="password"
 		returnVariable="mappings";
 
-	systemOutput("-------------- Mappings --------------", true);
+	echo("-------------- Mappings --------------" & chr(10));
 	loop query="mappings" {
-		systemOutput("#mappings.virtual# #mappings.strPhysical# "
+		echo("#mappings.virtual# #mappings.strPhysical# "
 			& (len(mappings.strArchive) ? "[#mappings.strArchive#] " : "")
-			& (len(mappings.inspect) ? "(#mappings.inspect#)" : ""), true);
+			& (len(mappings.inspect) ? "(#mappings.inspect#)" : "" & chr(10));
 	}
-
 
 	admin
 		action="getMappings"
@@ -25,14 +24,14 @@
 		password="password"
 		returnVariable="mappings";
 
-	systemOutput("-------------- Mappings --------------", true);
+	echo("-------------- Mappings --------------" & chr(10));
 	loop query="mappings" {
-		systemOutput("#mappings.virtual##mappings.strPhysical# "
+		echo("#mappings.virtual##mappings.strPhysical# "
 			& (len(mappings.strArchive) ? "[#mappings.strArchive#] " : "")
-			& (len(mappings.inspect) ? "(#mappings.inspect#)" : ""), true);
+			& (len(mappings.inspect) ? "(#mappings.inspect#)" : "") & chr(10) );
 	}
 
 	a = new Query();
-	dump(a);
+	echo("worked?");
 
 </cfscript>
