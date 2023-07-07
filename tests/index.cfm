@@ -1,7 +1,5 @@
 <cfscript>
-	a = new Query();
-	dump(a);
-
+	
 
 	admin
 		action="getMappings"
@@ -29,4 +27,8 @@
 			& (len(mappings.strArchive) ? "[#mappings.strArchive#] " : "")
 			& (len(mappings.inspect) ? "(#mappings.inspect#)" : ""), true);
 	}
+
+	a = new Query();
+	dump(a);
+
 </cfscript>
