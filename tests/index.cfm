@@ -1,5 +1,8 @@
 <cfscript>
 
+	cfg = fileRead(expandPath("{lucee-server}/logs/out.log"));
+
+	
 	echo( expandPath("{lucee-server}") & chr(10) );
 	flush;
 
@@ -27,6 +30,10 @@
 	} catch (e) {
 		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
 	}
+
+	cfg2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
+
+	echo(mid(cfg2, len(cfg))); // output anything in out.log after it starts working
 
 	flush;
 	admin
