@@ -1,4 +1,6 @@
 <cfscript>
+
+	systemOutput(expandPath("{lucee-server}"), true);
 	
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
