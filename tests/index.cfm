@@ -6,7 +6,7 @@
 		echo(mess & chr(10));
 		systemOutput(mess, true);
 	}
-	
+
 	logger( expandPath("{lucee-server}") );
 	flush;
 
@@ -17,6 +17,8 @@
 		failed = true;
 		logger (" failed : #e.stacktrace#");
 	}
+
+	if (!failed) abort;
 
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
