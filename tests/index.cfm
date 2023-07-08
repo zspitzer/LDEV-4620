@@ -13,10 +13,10 @@
 	function testNewQuery(){
 		try {
 			a = new Query(); // this fails since 492
-			logger("ys, new Query worked!");
+			logger("cool, new Query() worked!");
 		} catch (e) {
 			failed = true;
-			logger ("new query failed : #e.stacktrace#");
+			logger ("new query() failed : #e.stacktrace#");
 		}
 	}
 
@@ -35,17 +35,17 @@
 		logger(mid(out2, len(out))); // outpu
 		abort;
 	}
-
+	/*
 	logger("expand path");
 	a = expandPath("query.cfc");
 	testNewQuery();
-
+	*/
 
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
-	testNewQuery();
+	//testNewQuery();
 
-	logger("load admin password");
+	logger("load admin password, via checkPassword");
 
 	admin action="checkPassword" type="server";
 
@@ -69,6 +69,6 @@
 
 	testNewQuery();
 
-	if (failed) throw "still not working";
+	if (failed) throw "new Qery(), still not working";
 
 </cfscript>
