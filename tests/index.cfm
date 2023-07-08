@@ -22,7 +22,8 @@
 	logger("#### " & server.lucee.version);
 	logger( expandPath("{lucee-server}") );
 	flush;
-
+	logger("sleeping for 15s");
+	sleep(15000);
 	testNewQuery();
 
 	if (!failed) abort;
