@@ -1,0 +1,15 @@
+{
+    "name":"presidetests-regression",
+    "openbrowser":true,
+    "trayEnable":true,
+    "app":{
+        "cfengine":"lucee@6.0.0-SNAPSHOT+492",
+        "serverHomeDirectory":"~/local"
+    },
+    "web":{
+        "webroot":"./",
+        "http":{
+            "port":"9999"
+        }
+    }
+}
