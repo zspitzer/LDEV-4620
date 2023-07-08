@@ -3,10 +3,10 @@
 	out = fileRead(expandPath("{lucee-server}/logs/out.log"));
 	
 	function logger(mess){
-		logger(mess & chr(10));
+		echo(mess & chr(10));
 		systemOutput(mess, true);
 	}
-	
+	abort;
 	logger( expandPath("{lucee-server}") );
 	flush;
 
