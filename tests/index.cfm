@@ -1,42 +1,46 @@
 <cfscript>
 	failed = false;
-	cfg = fileRead(expandPath("{lucee-server}/logs/out.log"));
+	out = fileRead(expandPath("{lucee-server}/logs/out.log"));
 	
+	function logger(mess){
+		logger(mess & chr(10));
+		systemOutput(mess, true);
+	}
 	
-	echo( expandPath("{lucee-server}") & chr(10) );
+	logger( expandPath("{lucee-server}") );
 	flush;
 
 	try {
 		a = new Query();
-		echo("worked?" & chr(10));
+		logger("worked?");
 	} catch (e) {
 		failed = true;
-		echo (" failed : #e.stacktrace#" & chr(10));
+		logger (" failed : #e.stacktrace#");
 	}
 
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
 	try {
 		a = new Query();
-		echo("worked?" & chr(10));
+		logger("worked?");
 	} catch (e) {
 		failed = true;
-		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
+		logger (" failed : #left(e.stacktrace,100)#");
 	}
 
 	admin action="checkPassword" type="server";
 
 	try {
 		a = new Query();
-		echo("worked?" & chr(10));
+		logger("worked?");
 	} catch (e) {
 		failed = true;
-		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
+		logger (" failed : #left(e.stacktrace,100)#");
 	}
 
-	cfg2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
+	out2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
-	echo(mid(cfg2, len(cfg))); // output anything in out.log after it starts working
+	logger(mid(out2, len(out))); // output anything in out.log after it starts working
 
 	flush;
 	admin
@@ -45,10 +49,10 @@
 		password="password"
 		returnVariable="mappings";
 
-	echo("-------------- Mappings --------------" & chr(10));
+	logger("-------------- Mappings --------------" );
 	loop query="mappings" {
 
-		echo( "#mappings.virtual# #mappings.strPhysical# " & chr(10));
+		logger( "#mappings.virtual# #mappings.strPhysical# " );
 
 	}
 
@@ -58,17 +62,17 @@
 		password="password"
 		returnVariable="mappings";
 
-	echo("-------------- Mappings --------------" & chr(10));
+	logger("-------------- Mappings --------------" );
 	loop query="mappings" {
-		echo("#mappings.virtual##mappings.strPhysical# " & chr(10) );
+		logger("#mappings.virtual##mappings.strPhysical# "  );
 	}
 
 	try {
 		a = new Query();
-		echo("worked?" & chr(10));
+		logger("worked?" );
 	} catch (e) {
 		failed = true;
-		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
+		logger (" failed : #left(e.stacktrace,100)#" );
 	}
 	if (failed) throw "still not working";
 

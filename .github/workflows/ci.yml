@@ -26,7 +26,7 @@ jobs:
       - name: test with script runner
         uses: lucee/script-runner@main
         with:
-          webroot: ${{ github.workspace }}/test
+          webroot: ${{ github.workspace }}/tests
           execute: /index.cfm
           luceeVersion: ${{ env.luceeVersion }}
           extensionDir:
