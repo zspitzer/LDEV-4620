@@ -29,6 +29,7 @@
 	} catch(e){
 		logger("> #e.stacktrace#");
 	};
+	logger(out);
 	
 	testNewQuery();
 
