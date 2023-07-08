@@ -31,6 +31,7 @@
 		failed = true;
 		logger (" failed : #left(e.stacktrace,100)#");
 	}
+	logger("load admin password");
 
 	admin action="checkPassword" type="server";
 
@@ -44,6 +45,7 @@
 
 	out2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
+	logger("#### out.log since request started");
 	logger(mid(out2, len(out))); // output anything in out.log after it starts working
 
 	flush;
