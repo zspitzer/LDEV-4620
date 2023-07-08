@@ -6,8 +6,8 @@
 		echo(mess & chr(10));
 		flush;
 		systemOutput(mess, true);
-
-		fileAppend( server.system.environment.GITHUB_STEP_SUMMARY, mess & chr(10) );
+		if (structKeyExists(server.system.environment, "GITHUB_STEP_SUMMARY"))
+			fileAppend( server.system.environment.GITHUB_STEP_SUMMARY, mess & chr(10) );
 	}
 
 	function testNewQuery(){
