@@ -9,39 +9,33 @@
 		fileAppend( server.system.environment.GITHUB_STEP_SUMMARY, mess & chr(10) );
 	}
 
+	function testNewQuery(){
+		try {
+			a = new Query(); // this fails since 492
+			logger("worked?");
+		} catch (e) {
+			failed = true;
+			logger (" failed : #e.stacktrace#");
+		}
+	}
+
+	logger("##" & server.lucee.version);
 	logger( expandPath("{lucee-server}") );
 	flush;
 
-	try {
-		a = new Query();
-		logger("worked?");
-	} catch (e) {
-		failed = true;
-		logger (" failed : #e.stacktrace#");
-	}
+	testNewQuery();
 
 	if (!failed) abort;
 
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
-	try {
-		a = new Query();
-		logger("worked?");
-	} catch (e) {
-		failed = true;
-		logger (" failed : #left(e.stacktrace,100)#");
-	}
+	testNewQuery();
+
 	logger("load admin password");
 
 	admin action="checkPassword" type="server";
 
-	try {
-		a = new Query();
-		logger("worked?");
-	} catch (e) {
-		failed = true;
-		logger (" failed : #left(e.stacktrace,100)#");
-	}
+	testNewQuery();
 
 	out2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
@@ -49,18 +43,6 @@
 	logger(mid(out2, len(out))); // output anything in out.log after it starts working
 
 	flush;
-	admin
-		action="getMappings"
-		type="web"
-		password="password"
-		returnVariable="mappings";
-
-	logger("-------------- Mappings --------------" );
-	loop query="mappings" {
-
-		logger( "#mappings.virtual# #mappings.strPhysical# " );
-
-	}
 
 	admin
 		action="getMappings"
@@ -73,13 +55,8 @@
 		logger("#mappings.virtual##mappings.strPhysical# "  );
 	}
 
-	try {
-		a = new Query();
-		logger("worked?" );
-	} catch (e) {
-		failed = true;
-		logger (" failed : #left(e.stacktrace,100)#" );
-	}
+	testNewQuery();
+
 	if (failed) throw "still not working";
 
 </cfscript>
