@@ -31,6 +31,8 @@ jobs:
             #cat /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
             mkdir -p /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context
             echo "password" > /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
+            echo '<?xml version="1.0" encoding="UTF-8"?>' > /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/lucee-server.xml
+            
             #cat /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
             
             ls -lR
