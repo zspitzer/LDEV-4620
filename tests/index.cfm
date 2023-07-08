@@ -6,7 +6,7 @@
 		echo(mess & chr(10));
 		systemOutput(mess, true);
 	}
-	abort;
+	
 	logger( expandPath("{lucee-server}") );
 	flush;
 
