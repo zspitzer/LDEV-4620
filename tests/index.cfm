@@ -1,7 +1,7 @@
 <cfscript>
-
+	failed = false;
 	cfg = fileRead(expandPath("{lucee-server}/logs/out.log"));
-
+	
 	
 	echo( expandPath("{lucee-server}") & chr(10) );
 	flush;
@@ -10,6 +10,7 @@
 		a = new Query();
 		echo("worked?" & chr(10));
 	} catch (e) {
+		failed = true;
 		echo (" failed : #e.stacktrace#" & chr(10));
 	}
 
@@ -19,6 +20,7 @@
 		a = new Query();
 		echo("worked?" & chr(10));
 	} catch (e) {
+		failed = true;
 		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
 	}
 
@@ -28,6 +30,7 @@
 		a = new Query();
 		echo("worked?" & chr(10));
 	} catch (e) {
+		failed = true;
 		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
 	}
 
@@ -64,8 +67,9 @@
 		a = new Query();
 		echo("worked?" & chr(10));
 	} catch (e) {
-		rethrow;
+		failed = true;
+		echo (" failed : #left(e.stacktrace,100)#" & chr(10));
 	}
-
+	if (failed) throw "still not working";
 
 </cfscript>
