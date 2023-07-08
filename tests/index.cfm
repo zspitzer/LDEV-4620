@@ -21,7 +21,7 @@
 	}
 
 	logger("#### " & server.lucee.version);
-	logger("out.log is #numberformat(len(out/1024))# kb")
+	logger("out.log is #numberformat(len(out)/1024)# kb");
 	logger( expandPath("{lucee-server}") );
 	
 	logger("sleeping for 3s");
