@@ -31,12 +31,10 @@ jobs:
             #cat /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
             mkdir -p /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context
             echo "password" > /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
-            echo '<?xml version="1.0" encoding="UTF-8"?><cfLuceeConfiguration version="4.2"></cfLuceeConfiguration>' > /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/lucee-server.xml
-            
             #cat /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
             
             ls -lR
-      - name: test with script runner
+      - name: Script runner - 6.0.0.503 WORKS
         uses: lucee/script-runner@main
         with:
           webroot: ${{ github.workspace }}/tests
@@ -44,13 +42,7 @@ jobs:
           luceeVersion: ${{ env.luceeVersion }}
           extensionDir:
           extensions:
-
-    #  - name: Install dependencies
-     #   uses: pixl8/github-action-box-install@v2
-      #  with:
-       #   verbose: true
-        #  force: true
-      - name: Run tests - 6.0.0.492
+      - name: Run tests - 6.0.0.492 WORKS
         uses: pixl8/github-action-box-test@v3
         with:
           boxjson_dir: /tests
@@ -58,7 +50,7 @@ jobs:
           test_server_json: /tests/server-492.json
           output_file: /tests/test-results.txt
           verbose: true
-      - name: Run tests - 6.0.0.503
+      - name: Run tests - 6.0.0.503 BROKEN!
         uses: pixl8/github-action-box-test@v3
         with:
           boxjson_dir: /tests

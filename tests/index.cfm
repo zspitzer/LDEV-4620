@@ -29,9 +29,13 @@
 	} catch(e){
 		logger("> #e.stacktrace#");
 	};
-	logger(out);
+	// logger(out);
 	
 	testNewQuery();
+
+	if (!failed) {
+		abort;
+	}
 
 	logger("sleeping for 3s");
 	sleep(3000); // testing the theory lucee 6 is starting to fast (doesn't help)
