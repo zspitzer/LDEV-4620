@@ -12,20 +12,25 @@
 	function testNewQuery(){
 		try {
 			a = new Query(); // this fails since 492
-			logger("worked?");
+			logger("ys, new Query worked!");
 		} catch (e) {
 			failed = true;
-			logger (" failed : #e.stacktrace#");
+			logger ("new query failed : #e.stacktrace#");
 		}
 	}
 
-	logger("##" & server.lucee.version);
+	logger("#### " & server.lucee.version);
 	logger( expandPath("{lucee-server}") );
 	flush;
 
 	testNewQuery();
 
 	if (!failed) abort;
+
+	logger("expand path");
+	a = expandPath("query.cfc");
+	testNewQuery();
+
 
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
