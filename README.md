@@ -2,7 +2,7 @@
 
 trying to repo https://luceeserver.atlassian.net/browse/LDEV-4620
 
-IT'S REALLY ODD
+IT'S REALLY ODD, so far, i can only repo on GHA
 
 works with script runner with 6.0.0.503
 
