@@ -23,16 +23,26 @@
 	logger("#### " & server.lucee.version);
 	logger("out.log is #numberformat(len(out)/1024)# kb");
 	logger( expandPath("{lucee-server}") );
+
+	try {
+		throw "get me a stacktrace";
+	} catch(e){
+		logger("> #e.stacktrace#");
+	};
 	
+	testNewQuery();
+
 	logger("sleeping for 3s");
 	sleep(3000); // testing the theory lucee 6 is starting to fast (doesn't help)
 	testNewQuery();
 
-	if (!failed) {
-		out2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
+	out2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
-		logger("#### out.log since request started");
-		logger(mid(out2, len(out))); // outpu
+	logger("#### out.log since request started");
+	logger(mid(out2, len(out))); // outpu
+	
+
+	if (!failed) {
 		abort;
 	}
 	/*
@@ -55,10 +65,10 @@
 
 	testNewQuery();
 
-	out2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
+	out3 = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
 	logger("#### out.log since request started");
-	logger(mid(out2, len(out))); // output anything in out.log after it starts working
+	logger(mid(out3, len(out))); // output anything in out.log after it starts working
 
 	admin
 		action="getMappings"
