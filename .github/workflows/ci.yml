@@ -23,6 +23,17 @@ jobs:
         with:
           path: _actions/lucee/script-runner/main/lucee-download-cache
           key: lucee-downloads
+      - name: set passwords, this shouldn't be so manual
+        run: |
+            pwd
+            mkdir -p /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context
+            echo "password" > /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
+            #cat /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
+            mkdir -p /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context
+            echo "password" > /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
+            #cat /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
+            
+            ls -lR
       - name: test with script runner
         uses: lucee/script-runner@main
         with:
@@ -31,13 +42,7 @@ jobs:
           luceeVersion: ${{ env.luceeVersion }}
           extensionDir:
           extensions:
-      - name: dump dir
-        run: |
-          pwd
-          mkdir -p /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context
-          echo "password" > /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
-          cat /home/runner/work/LDEV-4620/LDEV-4620/WEB-INF/lucee-server/context/password.txt
-          ls -lR
+
     #  - name: Install dependencies
      #   uses: pixl8/github-action-box-install@v2
       #  with:
