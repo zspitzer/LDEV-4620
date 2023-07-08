@@ -4,6 +4,7 @@
 	
 	function logger(mess){
 		echo(mess & chr(10));
+		flush;
 		systemOutput(mess, true);
 
 		fileAppend( server.system.environment.GITHUB_STEP_SUMMARY, mess & chr(10) );
@@ -20,13 +21,20 @@
 	}
 
 	logger("#### " & server.lucee.version);
+	logger("out.log is #numberformat(len(out/1024))# kb")
 	logger( expandPath("{lucee-server}") );
-	flush;
-	logger("sleeping for 15s");
-	sleep(15000);
+	
+	logger("sleeping for 3s");
+	sleep(3000); // testing the theory lucee 6 is starting to fast (doesn't help)
 	testNewQuery();
 
-	if (!failed) abort;
+	if (!failed) {
+		out2 = fileRead(expandPath("{lucee-server}/logs/out.log"));
+
+		logger("#### out.log since request started");
+		logger(mid(out2, len(out))); // outpu
+		abort;
+	}
 
 	logger("expand path");
 	a = expandPath("query.cfc");
@@ -47,8 +55,6 @@
 
 	logger("#### out.log since request started");
 	logger(mid(out2, len(out))); // output anything in out.log after it starts working
-
-	flush;
 
 	admin
 		action="getMappings"
