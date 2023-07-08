@@ -41,10 +41,14 @@
 	testNewQuery();
 	*/
 
+	logger("let's try application update");
+	application action="update" name="i'll try anything";
+	testNewQuery();
+
+
 	fileWrite('#expandPath("{lucee-server}")#/password.txt', 'password');
 
-	//testNewQuery();
-
+	
 	logger("load admin password, via checkPassword");
 
 	admin action="checkPassword" type="server";
