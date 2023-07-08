@@ -5,6 +5,8 @@
 	function logger(mess){
 		echo(mess & chr(10));
 		systemOutput(mess, true);
+
+		fileAppend( server.system.environment.GITHUB_STEP_SUMMARY, mess & chr(10) );
 	}
 
 	logger( expandPath("{lucee-server}") );
