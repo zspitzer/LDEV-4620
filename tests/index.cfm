@@ -19,9 +19,9 @@
 			logger ("new query() failed : #e.stacktrace#");
 		}
 	}
-
+	settings =  getApplicationSettings();
 	logger("#### " & server.lucee.version & " single mode: " 
-		& (getApplicationSettings().singleContext ?: "n/a") ) ;
+		& (settings.singleContext ?: "n/a") ) ;
 	logger("out.log is #numberformat(len(out)/1024)# kb");
 	logger( expandPath("{lucee-server}") );
 
