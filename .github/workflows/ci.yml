@@ -52,7 +52,7 @@ jobs:
           verbose: true
       - name: rmdir
         run: |
-          rm -rf ~/local
+          rm -rfv ~/local
       - name: Run tests - 6.0.0.494 WORKS
         uses: pixl8/github-action-box-test@v3
         with:
@@ -61,6 +61,9 @@ jobs:
           test_server_json: /tests/server-492.json
           output_file: /tests/test-results.txt
           verbose: true
+      - name: rmdir2
+        run: |
+          rm -rfv ~/local
       - name: Run tests - 6.0.0.495 BROKEN!
         uses: pixl8/github-action-box-test@v3
         with:
