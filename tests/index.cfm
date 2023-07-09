@@ -33,12 +33,17 @@
 
 	
 	ex = fileRead(expandPath("{lucee-server}/logs/exception.log"));
-	app = fileRead(expandPath("{lucee-server}/logs/application.log"));
 	logger("## exception.log");
 	logger(ex);
 
+	app = fileRead(expandPath("{lucee-server}/logs/application.log"));
 	logger("## application.log");
 	logger(app);
+
+	deploy = fileRead(expandPath("{lucee-server}/logs/deploy.log"));
+	logger("## deploy.log");
+	logger(deploy);
+
 
 	if ( fileExists( expandPath("{lucee-server}/logs/err.log") ) ){
 		err = fileRead(expandPath("{lucee-server}/logs/err.log"));
