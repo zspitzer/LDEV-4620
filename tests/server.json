@@ -3,7 +3,7 @@
     "openbrowser":true,
     "trayEnable":true,
     "app":{
-        "cfengine":"lucee-light@6.0.0-SNAPSHOT+430",
+        "cfengine":"lucee-light@6.0.0-SNAPSHOT+400",
         "serverHomeDirectory":"~/local"
     },
     "web":{
