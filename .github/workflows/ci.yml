@@ -7,7 +7,7 @@ jobs:
     name: Preside CI
     runs-on: ubuntu-latest
     env:
-      luceeVersion: zero-6.0.0.503-SNAPSHOT
+      luceeVersion: light-6.0.0.495-SNAPSHOT
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
             #cat /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
             
             ls -lR
-      - name: Script runner - 6.0.0.503 WORKS
+      - name: Script runner - 6.0.0.495 WORKS
         uses: lucee/script-runner@main
         with:
           webroot: ${{ github.workspace }}/tests
@@ -50,7 +50,7 @@ jobs:
           test_server_json: /tests/server-492.json
           output_file: /tests/test-results.txt
           verbose: true
-      - name: Run tests - 6.0.0.503 BROKEN!
+      - name: Run tests - 6.0.0.495 BROKEN!
         uses: pixl8/github-action-box-test@v3
         with:
           boxjson_dir: /tests
