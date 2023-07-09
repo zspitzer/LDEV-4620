@@ -50,6 +50,9 @@ jobs:
           test_server_json: /tests/server-541.json
           output_file: /tests/test-results.txt
           verbose: true
+      - name: rmdir
+        run: |
+          rmdir -rf ~/local
       - name: Run tests - 6.0.0.494 WORKS
         uses: pixl8/github-action-box-test@v3
         with:
