@@ -20,7 +20,8 @@
 		}
 	}
 
-	logger("#### " & server.lucee.version & " single mode: " & getApplicationSettings().singleContext)  ;
+	logger("#### " & server.lucee.version & " single mode: " 
+		& (getApplicationSettings().singleContext ?: "n/a") ) ;
 	logger("out.log is #numberformat(len(out)/1024)# kb");
 	logger( expandPath("{lucee-server}") );
 
