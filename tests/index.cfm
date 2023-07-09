@@ -1,7 +1,7 @@
 <cfscript>
 	failed = false;
 	out = fileRead(expandPath("{lucee-server}/logs/out.log"));
-	
+
 	function logger(mess){
 		echo(mess & chr(10));
 		flush;
@@ -30,7 +30,24 @@
 		logger("> #e.stacktrace#");
 	};
 	// logger(out);
+
 	
+	ex = fileRead(expandPath("{lucee-server}/logs/exception.log"));
+	app = fileRead(expandPath("{lucee-server}/logs/application.log"));
+	logger("## exception.log");
+	logger(ex);
+
+	logger("## application.log");
+	logger(app);
+
+	if ( fileExists( expandPath("{lucee-server}/logs/err.log") ) ){
+		err = fileRead(expandPath("{lucee-server}/logs/err.log"));
+
+		logger("## err.log");
+		logger(err);
+	}
+
+
 	testNewQuery();
 
 	if (!failed) {
