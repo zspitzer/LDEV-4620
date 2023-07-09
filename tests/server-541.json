@@ -1,0 +1,15 @@
+{
+    "name":"presidetests-regression",
+    "openbrowser":true,
+    "trayEnable":true,
+    "app":{
+        "cfengine":"lucee-light@5.4.1.8",
+        "serverHomeDirectory":"~/local"
+    },
+    "web":{
+        "webroot":"./",
+        "http":{
+            "port":"9999"
+        }
+    }
+}
