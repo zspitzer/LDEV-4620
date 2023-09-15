@@ -31,7 +31,7 @@
 	logger(config);
 	logger("-------------------ends -----------------");
 
-	componentPath = expandPath("{lucee-server}") & "/context/context/Component.cfc";
+	componentPath = expandPath("{lucee-server}") & "/context/Component.cfc";
 	componentExists = fileExists(componentPath );
 
 	logger(" componentExists: #componentExists# at #componentPath#");
