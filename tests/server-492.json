@@ -3,8 +3,8 @@
     "openbrowser":true,
     "trayEnable":true,
     "app":{
-        "cfengine":"lucee-light@6.0.0-SNAPSHOT+545",
-        "serverHomeDirectory":"C:/work/lucee-extensions/LDEV-4620/local"
+        "cfengine":"lucee-light@6.0.0-SNAPSHOT+494",
+        "serverHomeDirectory":"~/local"
     },
     "web":{
         "webroot":"./",
