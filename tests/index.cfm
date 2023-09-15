@@ -2,7 +2,7 @@
 	failed = false;
 	out = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
-	config =  fileRead(expandPath("{lucee-server}/.CFconfig.json"));
+	config =  fileRead(expandPath("{lucee-server}/.CFConfig.json"));
 
 	function logger(mess){
 		echo(mess & chr(10));
