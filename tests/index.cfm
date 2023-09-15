@@ -2,6 +2,8 @@
 	failed = false;
 	out = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
+	config =  fileRead(expandPath("{lucee-server}/.CFconfig.json"));
+
 	function logger(mess){
 		echo(mess & chr(10));
 		flush;
@@ -24,6 +26,15 @@
 		& (settings.singleContext ?: "n/a") ) ;
 	logger("out.log is #numberformat(len(out)/1024)# kb");
 	logger( expandPath("{lucee-server}") );
+
+	logger("-------------------cfconfig.json-----------------");
+	logger(config);
+	logger("-------------------ends -----------------");
+
+	componentPath = expandPath("{lucee-server}") & "/context/context/Component.cfc";
+	componentExists = fileExists(componentPath );
+
+	logger(" componentExists: #componentExists# at #componentPath#");
 
 	try {
 		throw "get me a stacktrace";
