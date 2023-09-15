@@ -36,6 +36,10 @@
 
 	logger(" componentExists: #componentExists# at #componentPath#");
 
+	logger(expandPath("/lucee-server"));
+    logger((expandPath("/lucee/Component.cfc")));
+    logger((expandPath("/lucee-server/Component.cfc")));
+
 	try {
 		throw "get me a stacktrace";
 	} catch(e){
