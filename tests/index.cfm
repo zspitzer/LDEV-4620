@@ -32,10 +32,11 @@
 	};
 	// logger(out);
 
-	
-	ex = fileRead(expandPath("{lucee-server}/logs/exception.log"));
-	logger("## exception.log");
-	logger(ex);
+	if (fileExists(expandPath("{lucee-server}/logs/exception.log"))){
+		ex = fileRead(expandPath("{lucee-server}/logs/exception.log"));
+		logger("## exception.log");
+		logger(ex);
+	}
 
 	app = fileRead(expandPath("{lucee-server}/logs/application.log"));
 	logger("## application.log");

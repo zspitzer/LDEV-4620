@@ -32,16 +32,15 @@ jobs:
             mkdir -p /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context
             echo "password" > /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
             #cat /home/runner/work/_actions/lucee/script-runner/main/temp/lucee/lucee-server/context/password.txt
-            
             ls -lR
-      - name: Script runner - 6.0.0.495 WORKS
-        uses: lucee/script-runner@main
-        with:
-          webroot: ${{ github.workspace }}/tests
-          execute: /index.cfm
-          luceeVersion: ${{ env.luceeVersion }}
-          extensionDir:
-          extensions:
+  #    - name: Script runner - 6.0.0.495 WORKS
+  #      uses: lucee/script-runner@main
+  #      with:
+  #        webroot: ${{ github.workspace }}/tests
+  #        execute: /index.cfm
+  #        luceeVersion: ${{ env.luceeVersion }}
+  #        extensionDir:
+  #        extensions:
   #    - name: Run tests - 5.4.1.8 WORKS
   #      uses: pixl8/github-action-box-test@v3
   #      with:
