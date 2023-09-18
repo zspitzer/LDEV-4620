@@ -10,6 +10,7 @@
         "webroot":"./",
         "http":{
             "port":"9999"
-        }
+        },
+        "accessLogEnable": true
     }
 }
