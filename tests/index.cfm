@@ -2,7 +2,11 @@
 	failed = false;
 	out = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
-	config =  fileRead(expandPath("{lucee-server}/.CFConfig.json"));
+	if (fileExists(expandPath("{lucee-server}/.CFConfig.json")) {
+		config =  fileRead(expandPath("{lucee-server}/.CFConfig.json"));
+	} else {
+		config = "no cfconfig.json found";
+	}
 
 	function logger(mess){
 		echo(mess & chr(10));
