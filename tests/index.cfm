@@ -27,6 +27,11 @@
 	logger("out.log is #numberformat(len(out)/1024)# kb");
 	logger( expandPath("{lucee-server}") );
 
+	logger("-------------------out.log-----------------");
+	logger(out);
+	logger("-------------------ends -----------------");
+
+
 	logger("-------------------cfconfig.json-----------------");
 	logger(config);
 	logger("-------------------ends -----------------");
