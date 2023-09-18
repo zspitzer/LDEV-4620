@@ -3,7 +3,7 @@
     "openbrowser":true,
     "trayEnable":true,
     "app":{
-        "cfengine":"lucee-light@6.0.0-SNAPSHOT+547",
+        "cfengine":"lucee-light@6.0.0-SNAPSHOT+550",
         "serverHomeDirectory":"~/local"
     },
     "web":{
@@ -11,6 +11,6 @@
         "http":{
             "port":"9999"
         },
-        "accessLogEnable": true
+        "accessLogEnable":true
     }
 }
