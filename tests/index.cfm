@@ -2,13 +2,13 @@
 	failed = false;
 	out = fileRead(expandPath("{lucee-server}/logs/out.log"));
 
-	if (fileExists(expandPath("{lucee-server}/.CFConfig.json")) {
+	if (fileExists(expandPath("{lucee-server}/.CFConfig.json"))) {
 		config =  fileRead(expandPath("{lucee-server}/.CFConfig.json"));
 	} else {
 		config = "no cfconfig.json found";
 	}
 
-	if (fileExists(expandPath("{lucee-server}/lucee-server.xml")) {
+	if (fileExists(expandPath("{lucee-server}/lucee-server.xml"))) {
 		serverxml =  fileRead(expandPath("{lucee-server}/lucee-server.xml"));
 	} else {
 		serverxml = "no lucee-server.xml found";
