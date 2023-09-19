@@ -8,6 +8,12 @@
 		config = "no cfconfig.json found";
 	}
 
+	if (fileExists(expandPath("{lucee-server}/lucee-server.xml")) {
+		serverxml =  fileRead(expandPath("{lucee-server}/lucee-server.xml"));
+	} else {
+		serverxml = "no lucee-server.xml found";
+	}
+
 	function logger(mess){
 		echo(mess & chr(10));
 		flush;
@@ -38,6 +44,10 @@
 
 	logger("-------------------cfconfig.json-----------------");
 	logger(config);
+	logger("-------------------ends -----------------");
+
+	logger("-------------------lucee-server.xml-----------------");
+	logger(serverxml);
 	logger("-------------------ends -----------------");
 
 	componentPath = expandPath("{lucee-server}") & "/context/Component.cfc";
